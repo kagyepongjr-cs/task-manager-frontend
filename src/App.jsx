@@ -48,7 +48,8 @@ function App() {
     <div className="app">
       <header>
         <h1>CrowdStrike Internship Task Tracker</h1>
-        <p>Austin, TX — Summer 2025</p>
+        <p>Austin, TX — Summer 2026</p>
+        <p>{tasks.length} task{tasks.length !== 1 ? 's' : ''} total</p>
       </header>
       {loading ? <p style={{textAlign: 'center', padding: '20px'}}>Loading tasks...</p> : (
         <>
