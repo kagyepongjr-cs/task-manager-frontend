@@ -1,16 +1,26 @@
-# React + Vite
+# CrowdStrike Internship Task Tracker — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React/Vite frontend for tracking tasks during my CrowdStrike Sales Excellence Elite internship in Austin, TX (Summer 2025).
 
-Currently, two official plugins are available:
+## Technologies
+- React
+- Vite
+- CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- Kanban board with To Do, In Progress, Done columns
+- Add tasks with title, description, priority, category, due date
+- Move tasks between columns via status dropdown
+- Delete tasks
+- Color coded priority badges (Low, Medium, High)
 
-## React Compiler
+## Setup
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm run dev`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Live App
+https://task-manager-frontend-iota-seven.vercel.app
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Backend Repo
+https://github.com/kagyepongjr-cs/task-manager-backend
