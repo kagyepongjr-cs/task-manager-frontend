@@ -7,11 +7,15 @@ const API = 'https://task-manager-backend-v7bl.onrender.com'
 
 function App() {
   const [tasks, setTasks] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch(`${API}/tasks`)
       .then(res => res.json())
-      .then(data => setTasks(data))
+      .then(data => {
+        setTasks(data)
+        setLoading(false)
+      })
   }, [])
 
   const handleAdd = (task) => {
@@ -46,12 +50,16 @@ function App() {
         <h1>CrowdStrike Internship Task Tracker</h1>
         <p>Austin, TX — Summer 2025</p>
       </header>
-      <TaskForm onAdd={handleAdd} />
-      <TaskList
-        tasks={tasks}
-        onDelete={handleDelete}
-        onStatusChange={handleStatusChange}
-      />
+      {loading ? <p style={{textAlign: 'center', padding: '20px'}}>Loading tasks...</p> : (
+        <>
+          <TaskForm onAdd={handleAdd} />
+          <TaskList
+            tasks={tasks}
+            onDelete={handleDelete}
+            onStatusChange={handleStatusChange}
+          />
+        </>
+      )}
     </div>
   )
 }
