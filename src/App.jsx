@@ -3,34 +3,36 @@ import TaskForm from './components/TaskForm'
 import TaskList from './components/TaskList'
 import './App.css'
 
+const API = 'https://task-manager-backend-v7bl.onrender.com'
+
 function App() {
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3000/tasks')
+    fetch(`${API}/tasks`)
       .then(res => res.json())
       .then(data => setTasks(data))
   }, [])
 
   const handleAdd = (task) => {
-    fetch('http://localhost:3000/tasks', {
+    fetch(`${API}/tasks`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(task)
     })
-      .then(() => fetch('http://localhost:3000/tasks')
+      .then(() => fetch(`${API}/tasks`)
         .then(res => res.json())
         .then(data => setTasks(data)))
   }
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/tasks/${id}`, { method: 'DELETE' })
+    fetch(`${API}/tasks/${id}`, { method: 'DELETE' })
       .then(() => setTasks(tasks.filter(task => task.id !== id)))
   }
 
   const handleStatusChange = (id, newStatus) => {
     const task = tasks.find(t => t.id === id)
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`${API}/tasks/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...task, status: newStatus })
